@@ -20,3 +20,12 @@ Revision history for Perl extension ctree.
 0.06  Wed Mar 3 21:46:24 1998
         - new version due to CPAN upload problems
 
+0.10   
+        - added install instructions to README (oops)
+
+0.11   
+        - added support for IOPERFORMANCEX call
+        - fixed bug in STORE method and AddRecord/AddVRecord
+
+1.0     - ready for release... verified Windows operation
+

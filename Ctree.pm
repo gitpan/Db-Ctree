@@ -20,7 +20,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 require Exporter;
 require DynaLoader;
 
-$VERSION = '0.06';
+$VERSION = '1.0';
 
 @ISA = qw(Exporter DynaLoader);
 
@@ -124,6 +124,7 @@ $VERSION = '0.06';
 		    &GetSuperFileNames
 		    &GetSymbolicNames
 		    &IOPERFORMANCE
+		    &IOPERFORMANCEX
 		    &InitCTree
 		    &InitCTreeXtd
 		    &KeyAtPercentile
@@ -1361,8 +1362,8 @@ my $DEBUG=0;
      my $idxno = $self -> {IDXNO};
  
      
-     if ( ($self -> {VARIABLE}) ? AddRecord($dbno,$value)
-                                : AddVRecord($dbno,$value,length($value)) )
+     if ( ($self -> {VARIABLE}) ? AddVRecord($dbno,$value)
+                                : AddRecord($dbno,$value,length($value)) )
      {
         croak sprintf("Error on AddRecord. isam_err=%d,isam_fil=%d",
                        &isam_err,&isam_fil);

@@ -135,6 +135,7 @@ print "ok \n";
    print "OK $record\n";
 
 #-----------------------
+   Db::Ctree::DEBUG(5);
    printf "test %2d %-20s",$t++,"tied hash open";
    $dbptr  = tie %hash, "Db::Ctree",2, $testIfile,&SHARED;
    if (! defined %hash)

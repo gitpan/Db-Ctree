@@ -567,6 +567,10 @@ COUNT
 IOPERFORMANCE(bufptr)
     VOID * bufptr
 
+COUNT
+IOPERFORMANCEX(bufptr)
+    VOID * bufptr
+
 LONG
 KeyAtPercentile(keyno,idxval,percent)
     COUNT keyno
@@ -950,4 +954,5 @@ WriteVData(datno,recbyt,recptr,varlen)
     VOID * recptr
     UCOUNT varlen
 
-       
+
+
