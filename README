@@ -1,0 +1,56 @@
+
+This is the first BETA of Db::Ctree, a module to access Faircom's Ctree 
+database from within Perl 5.
+
+I created this module because I wanted to use Perl to generate reports from
+data stored in a Ctree database.  The bulk of the code at our site is written
+in C using the Faircom C library, so I need not need to create files
+and resource records.  Yes, this is a quick hack.  It will improve over time
+if there is interest.
+
+It is not mean to replace Faircom's development license.  That license is
+still required legally (I think... I'm not a lawyer, nor play one on TV),
+morally and without a doubt documentation wise.  If you can use this 
+module without that documentation, that's pretty impressive.
+
+In order to do the port, I took the function list and parameters from the
+quick reference list and converted the data types.  I needed to remove a few
+functions that dealt with some file structures, but most of the routines 
+are available.  I have not tested each one, but have yet to find one that
+didn't work from perl.
+
+All low level and most ISAM routines seem to work fine.  Functions that need
+a C structure are not currently supported.  I'm still trying to figure out
+how I want to implement them.
+
+If you use the ISAM routines, you need to either have a C program create 
+resource records so you can use OpenFileWithResource or open it with a 
+parameter file.  My Method access routines uses the OpenFileWithResource
+function.
+
+If your files have DODA information stored in them (again, by a C program),
+a Method is available to split a record into a hash!!
+
+If you give this module a shot, please drop me an email so I can let you know
+of new versions or just get a warm fuzzy!
+
+I've provided two routines (with minor site customizations) ctload and ctdump
+that we use quite often.
+
+Robert Eden
+Strategic Systems and Services
+reden@strategiconline.com (comments and suggestions always welcome!)
+
+# Copyright 1998 Robert Eden
+# All rights reserved.
+#
+# Automatic licensing for this software is available.  This software
+# can be copied and used under the terms of the GNU Public License,
+# version 1 or (at your option) any later version, or under the
+# terms of the Artistic license.  Both of these can be found with
+# the Perl distribution, which this software is intended to augment.
+#
+# THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+# WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
