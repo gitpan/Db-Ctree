@@ -10,3 +10,6 @@ WriteMakefile(
                      'Ctport.ph' => '$(INST_LIB)/Ctport.ph',
                      'Cterrc.ph' => '$(INST_LIB)/Cterrc.ph'}
 );
+# 'LIBS'	=> ['/faircom/lib.fpg/ctreestd.lib'],
+# 'INC'	=> '-I/faircom/ctree/include -I/faircom/ctree/custom',
+

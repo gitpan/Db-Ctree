@@ -20,7 +20,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 require Exporter;
 require DynaLoader;
 
-$VERSION = '1.0';
+$VERSION = '1.1';
 
 @ISA = qw(Exporter DynaLoader);
 
@@ -1575,8 +1575,8 @@ by a C program and have resource and DODA structures already.)
 =head1 Author
 
 Robert Eden
-Strategic Systems and Services
-reden@strategiconline.com
+CommTech Corporation
+rmeden@yahoo.com
 
 =head1 SEE ALSO
 

@@ -6,8 +6,10 @@ Ctree.xs
 MANIFEST
 Makefile.PL
 README
+ctcount
 ctdump
 ctload
+ctmod
 ctperl.p
 ctport.h
 iparam.txt

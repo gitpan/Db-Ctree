@@ -29,3 +29,10 @@ Revision history for Perl extension ctree.
 
 1.0     - ready for release... verified Windows operation
 
+1.1     - updated comments/code to remove strategiconline reference
+        - removed empty subroutine templates in PH files to allow
+          program to work with Windows Perl Dev Kit PerlApp compiler
+        - added extra PACKAGE statement in PH files to workaround bug in
+          Windows Perl Dev Kit PerlApp compiler
+        - added utilities ctload, ctcount, ctmod
+

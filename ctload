@@ -14,13 +14,16 @@
 #   Line 3+: record to add (fields separated by vertical bar)
 #
 # Author:
-#        Robert Eden 2/26/98
+#        Robert Eden 2/26/98 rmeden@yahoo.com
 #
 
 use Db::Ctree qw(:ALL);
 my $filename = shift;
 
-die "ctdump <filename> <infile\n" unless $filename;
+my $SPACEPAD=0;
+$SPACEPAD = shift if $ARGV[0] == 1;
+
+die "ctload <tablename> infile\n" unless $filename;
 
 #
 # check input file
@@ -36,7 +39,7 @@ die "$filename not found "     unless -e $filename;
 #
 # open database
 #
-InitISAM(10,2,4);
+InitISAM(10,10,4);
 $dbptr = tie %table,"Db::Ctree", 0, $filename, &Db::Ctree::SHARED;
 
 #
@@ -47,7 +50,7 @@ $dbptr -> build_schema();
 @fname = @{$dbptr -> {FNAME}};
 @ftype = @{$dbptr -> {FTYPE}};
 $fmask = $dbptr -> {FMASK};
-$fmask =~ s/A/a/g;  # pack with nulls instead of spaces
+$fmask =~ s/A/a/g unless $SPACEPAD;  # pack with nulls instead of spaces
 print "fields $fmask\n";
 
 $_=<>; chomp;
@@ -78,6 +81,7 @@ foreach $_ (@inp_fields)
 #
 # process new records
 #
+Begin( &TRNLOG | & ENABLE );
 while(<>)
 {
   chomp;
@@ -95,7 +99,9 @@ while(<>)
      push @DATA,$rec{$_};
   }
   $record = pack($fmask,@DATA);
-  $stauts=0;
+  $status = 0;
+
+  print "Adding $record\n";
   $status = &AddRecord($dbptr->{DBNO},$record);
   print "add = $status\n";
   if ($status == 2)
@@ -107,5 +113,10 @@ while(<>)
   {
     print join("|",@DATA)."\n";
   }
-  die "$record\n Error $status adding record!\n" if $status;
+  if ($status)
+  {
+     print "Error on $record\n";
+     die "Error $status\nadding record!\n";
+  }
 }
+Commit(&FREE);

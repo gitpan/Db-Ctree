@@ -1,6 +1,9 @@
+Release 1.1
 
-This is the first non-beta release of Db::Ctree, a module to access Faircom's
-Ctree database from Perl 5.
+This is the second non-beta release of Db::Ctree, a module to access Faircom's
+Ctree database from Perl 5.  The 1.1 release adds a few changes to make the 
+module compile easier on Windows and work with the Perl Develper Kit's PerlApp
+utility. (This utility creates self-standing executables)
 
 I created this module because I wanted to use Perl to generate reports from
 data stored in a Ctree database.  The bulk of the code at our site is written
@@ -42,6 +45,7 @@ the time (They'll probably need some modifications for other sites.)
 	ctdump - dumps a table (splits those with DODAs)
 	ctload - loads a table with data in the ctdump output format
 	ctmod  - allows SUBST changes to a table
+	ctcount- counts records based on keys
 
 
 Install Instructions:
