@@ -20,7 +20,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 require Exporter;
 require DynaLoader;
 
-$VERSION = '1.1';
+$VERSION = '1.2';
 
 @ISA = qw(Exporter DynaLoader);
 

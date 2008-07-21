@@ -36,3 +36,5 @@ Revision history for Perl extension ctree.
           Windows Perl Dev Kit PerlApp compiler
         - added utilities ctload, ctcount, ctmod
 
+1.2     - updated Makefile to block automated CPAN testers, since it needs
+          a Faircom license and library
